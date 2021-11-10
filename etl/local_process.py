@@ -86,4 +86,5 @@ user_movie_type_df = user_movie_type_df.select("user_id", "item_id").distinct()
 
 recommend_df = user_movie_type_df.union(user_actor_df).distinct()
 recommend_df = recommend_df.orderBy(F.col("user_id"))
+print(recommend_df.count())
 recommend_df.show(10)

@@ -2,14 +2,14 @@ import boto3
 from boto3.dynamodb.conditions import Key
 
 dynamodb = boto3.resource('dynamodb',
-                          region_name='cn-northwest-1',
-                          aws_access_key_id="AKIAQMS6D5EI3FOTFUE4",
-                          aws_secret_access_key="your key"
+                          region_name='ap-southeast-1',
+                          aws_access_key_id="key id",
+                          aws_secret_access_key="key secret"
                           )
 
-table = dynamodb.Table('demo-ohla-recommand')
+table = dynamodb.Table('recommend-user-item')
 response = table.query(
-    KeyConditionExpression=Key('user_id').eq(str(18953))
+    KeyConditionExpression=Key('user_id').eq(str(180628000958))
 )
 
 if response['ResponseMetadata']['HTTPStatusCode'] == 200:

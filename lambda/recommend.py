@@ -5,8 +5,8 @@ from boto3.dynamodb.conditions import Key
 def lambda_handler(event, context):
     user_id = event["user_id"]
 
-    dynamodb = boto3.resource('dynamodb', region_name='cn-northwest-1')
-    table = dynamodb.Table('demo-ohla-recommand')
+    dynamodb = boto3.resource('dynamodb', region_name='ap-southeast-1')
+    table = dynamodb.Table('recommend-user-item')
     response = table.query(
         KeyConditionExpression=Key('user_id').eq(str(user_id))
     )
